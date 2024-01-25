@@ -17,6 +17,7 @@ public class Cinema {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int CinemaId;
 
+
     @Column
     private String name;
 
