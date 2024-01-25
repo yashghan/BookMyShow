@@ -19,17 +19,26 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
+    private Long movieId;
+
+    @Column(nullable = false)
     private String title;
+
     @Column(nullable = false)
     private String description;
+
     @Column(nullable = false)
     private int durInMinutes;
+
     @Column(nullable = false)
     private String language;
+
     @Column(nullable = false)
     private Date releaseDate;
+
     @Column(nullable = false)
     private String Country;
+
     @Column(nullable = false)
     private String genre;
 
