@@ -13,7 +13,7 @@ public class BookMyShowApplication {
 	}
 
 	public void static String  hello(){
-		System.out.println("hello world hello");
+		System.out.println("hello world ");
 	}
 
 }
