@@ -14,6 +14,10 @@ import lombok.Setter;
 @Table(name = "cinema")
 public class Cinema {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int CinemaId;
+
+    @Column
     private String name;
 
     @Column
