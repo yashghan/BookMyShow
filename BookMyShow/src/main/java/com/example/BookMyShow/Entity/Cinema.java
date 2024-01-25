@@ -18,13 +18,13 @@ public class Cinema {
     private int CinemaId;
 
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    @Column
+    @Column(nullable = false)
     private Long totalCinemaHalls;
 
-    @Column
+    @Column(nullable = false)
     private String Address;
 
 

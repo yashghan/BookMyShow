@@ -20,10 +20,10 @@ public class Show {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int showId;
 
-    @Column
+    @Column(nullable = false)
     private Time startTime;
 
-    @Column
+    @Column(nullable = false)
     private Time endTime;
 
 
