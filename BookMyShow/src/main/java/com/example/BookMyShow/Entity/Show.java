@@ -6,26 +6,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Time;
+import java.util.Date;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "cinema")
-public class Cinema {
+@Table(name = "Show")
+public class Show {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int CinemaId;
-
-
-    @Column
-    private String name;
+    private int showId;
 
     @Column
-    private Long totalCinemaHalls;
+    private Time startTime;
 
     @Column
-    private String Address;
+    private Time endTime;
+
+
 
 
 }
