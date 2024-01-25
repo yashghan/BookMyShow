@@ -17,6 +17,7 @@ import java.util.Date;
 public class CinemaHall {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     @Column(nullable = false)
     private Long cinemaHallId;
     @Column(nullable = false)
