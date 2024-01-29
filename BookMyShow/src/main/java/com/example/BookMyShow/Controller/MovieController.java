@@ -23,7 +23,7 @@ public class MovieController {
         response.put("showTimes", movieList);
         response.put("theatreNames", theatreNames);
 
-        return response;
+        return (ResponseEntity<Optional<Movie>>) response;
     }
 
     @GetMapping("/show")
