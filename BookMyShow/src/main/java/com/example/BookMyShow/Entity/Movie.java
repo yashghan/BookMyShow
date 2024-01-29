@@ -33,7 +33,7 @@ public class Movie {
     private Date releaseDate;
 
     @Column(nullable = false)
-    private String Country;
+    private String city;
 
     @Column(nullable = false)
     private String genre;
