@@ -1,5 +1,7 @@
 package com.example.BookMyShow.Controller;
-
+import
+import com.example.BookMyShow.Entity.CinemaHall;
+import com.example.BookMyShow.Entity.Show;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,9 +29,16 @@ public class MovieController {
         }
 
     }
+    @GetMapping("/reserved")
+    public ResponseEntity<Optional<CinemaHall>> getreserveSeats(Long showId , List<SeatId> seatIds){
+        Optional<CinemaHall> seat = movieService.fetchSeats(showId).getBody();
+        if (seat.isPresent()){
+            return ResponseEntity.ok(seat);
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
 
-
-
-
+    }
 
 }
