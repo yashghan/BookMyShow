@@ -1,19 +1,31 @@
 package com.example.BookMyShow.Controller;
-import
-import com.example.BookMyShow.Entity.CinemaHall;
-import com.example.BookMyShow.Entity.Show;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.example.BookMyShow.Entity.Cinema;
+import com.example.BookMyShow.Entity.Movie;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
 
 @RestController
 @RequestMapping("/")
 public class MovieController {
+    @GetMapping("/search")
+    public ResponseEntity<Optional<Movie>> searchShow(
+            @RequestParam String cityName,
+            @RequestParam Date movieDate,
+            @RequestParam String movieTitle
+    ) {
+        List<Movie> movieList = showTimeService.searchShow(cityName, movieDate, movieTitle);
+        List<Cinema> theatreNames = showTimeService.getTheatreNamesForShowTimes(showTimes);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("showTimes", movieList);
+        response.put("theatreNames", theatreNames);
+
+        return response;
+    }
+
     @GetMapping("/show")
     public ResponseEntity<List<Show>> getAllShow(){
         return movieService.fetchAllShows();
@@ -29,16 +41,9 @@ public class MovieController {
         }
 
     }
-    @GetMapping("/reserved")
-    public ResponseEntity<Optional<CinemaHall>> getreserveSeats(Long showId , List<SeatId> seatIds){
-        Optional<CinemaHall> seat = movieService.fetchSeats(showId).getBody();
-        if (seat.isPresent()){
-            return ResponseEntity.ok(seat);
-        }
-        else {
-            return ResponseEntity.notFound().build();
-        }
 
-    }
+
+
+
 
 }
